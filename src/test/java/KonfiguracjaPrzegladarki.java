@@ -10,7 +10,7 @@ public class KonfiguracjaPrzegladarki {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
+        options.setHeadless(true);
         options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT); // akceptowanie wyskakujacych okienek
         WebDriver driver = new ChromeDriver(options);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
