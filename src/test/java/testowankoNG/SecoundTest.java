@@ -1,6 +1,7 @@
 package testowankoNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
+//import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

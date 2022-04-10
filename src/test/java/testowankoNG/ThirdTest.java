@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
+import org.testng.annotations.DataProvider;
+//import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -75,5 +76,14 @@ public class ThirdTest extends BaseTest{
             }
         });
 
+    }
+    @Test(dataProvider = "data")
+    public void dpTest(String val, String number){
+        System.out.println(val);
+        System.out.println(number);
+    }
+    @DataProvider(name = "data")
+    public Object[][] dataProvider(){
+        return new Object[][]{{"I'm first", "first"},{"I'm secound","secound"},{"i'm third","third"}};
     }
 }

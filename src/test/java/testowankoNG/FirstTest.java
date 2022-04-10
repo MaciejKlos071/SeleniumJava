@@ -1,6 +1,7 @@
 package testowankoNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
+//import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -21,8 +22,8 @@ public class FirstTest extends BaseTest{
 
     @Test @Ignore
     public void firstTest(){
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         driver.findElement(By.id("clickOnMe")).click();
 
@@ -43,8 +44,7 @@ public class FirstTest extends BaseTest{
     }
     @Test
     public void secoundTest(){
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         driver.findElement(By.id("clickOnMe")).click();
 
@@ -57,10 +57,12 @@ public class FirstTest extends BaseTest{
         softAssert.assertEquals(paragraf.isDisplayed(),true);
         softAssert.assertEquals(tekst, "Dopiero się pojawiłem!");
         softAssert.assertEquals(tekst,"Dop","teksty się różnią");
-        softAssert.assertTrue(paragraf.isDisplayed());
-        softAssert.assertTrue(paragraf.isDisplayed());
-        softAssert.assertTrue(paragraf.getText().startsWith("Dopiero"));
-        softAssert.assertTrue(paragraf.getText().endsWith("m!"));
+        paragraf.isDisplayed();
+
+        softAssert.assertTrue(paragraf.isDisplayed(), "not displayed");
+        softAssert.assertTrue(paragraf.isDisplayed(), "not displayed");
+        softAssert.assertTrue(paragraf.getText().startsWith("Dopiero"), "message");
+        softAssert.assertTrue(paragraf.getText().endsWith("m!"), "text doesn't end at 'm!'");
         driver.quit();
         softAssert.assertAll();
     }
